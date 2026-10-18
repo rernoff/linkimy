@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Programme du mariage – Stéphanie & Jean-Marc</title><meta name="description" content="Exemple de programme de mariage Linkimy, en français et en créole."><meta name="theme-color" content="#14264b"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f9fd; --surface:#ffffff; --ink:#14264b; --muted:#53607d;
+  --line:#d5ddee; --accent:#b8283f; --accent-ink:#ffffff; --soft:#e8eef9;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1730; --surface:#16213f; --ink:#eef2fb; --muted:#a6b1cc;
+    --line:#2b3a63; --accent:#e5566b; --accent-ink:#0e1730; --soft:#1c2a50;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1730; --surface:#16213f; --ink:#eef2fb; --muted:#a6b1cc;
+  --line:#2b3a63; --accent:#e5566b; --accent-ink:#0e1730; --soft:#1c2a50;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-text-size-adjust:100%}
+[data-lang="fr"] [lang="ht"], [data-lang="ht"] [lang="fr"]{display:none}
+main{max-width:34rem;margin:0 auto;padding:1.25rem 1.25rem 3rem}
+
+.langs{display:flex;justify-content:flex-end;gap:.25rem}
+.langs button{font:600 .9rem var(--sans);border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:.5rem .9rem;min-height:44px;cursor:pointer}
+.langs button:first-child{border-radius:999px 0 0 999px}
+.langs button:last-child{border-radius:0 999px 999px 0}
+[data-lang="fr"] #b-fr,[data-lang="ht"] #b-ht{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+header{text-align:center;padding:2.5rem 0 2rem}
+.kicker{margin:0 0 1rem;color:var(--muted);font-size:.95rem}
+h1{font:600 clamp(2.6rem,13vw,3.6rem)/1 var(--serif);margin:0;letter-spacing:.01em}
+h1 span{display:block}
+h1 .and{font-weight:500;font-size:.55em;color:var(--accent);margin:.2em 0}
+.when{margin:1.5rem 0 0;font-weight:600}
+.where{margin:.15rem 0 0;color:var(--muted)}
+
+h2{font:600 1.7rem/1.15 var(--serif);margin:2.5rem 0 1rem}
+ol.timeline{list-style:none;margin:0;padding:0 0 0 1.25rem;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 1.1rem 1rem}
+.timeline li::before{content:"";position:absolute;left:-1.72rem;top:.55em;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+.timeline time{display:block;font-weight:600;font-variant-numeric:tabular-nums;color:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1rem 1.15rem}
+.card p{margin:.15rem 0}
+.card .label{color:var(--muted);font-size:.92rem}
+.card + .card{margin-top:.75rem}
+.note{background:var(--soft);border-radius:14px;padding:1rem 1.15rem;margin-top:2rem}
+.note p{margin:.2rem 0}
+.share{display:flex;align-items:center;justify-content:center;width:100%;min-height:52px;margin-top:2rem;background:var(--accent);color:var(--accent-ink);font:600 1.05rem var(--sans);border-radius:999px;text-decoration:none}
+footer{margin-top:2rem;text-align:center;color:var(--muted);font-size:.85rem}
+.brand{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.3rem .7rem;line-height:0}.brand img{height:30px;width:auto;display:block}footer p{margin:.75rem 0 0}
+</style>
+</head>
+<body>
+<main>
+  <div class="langs" role="group" aria-label="Langue / Lang">
+    <button id="b-fr" type="button" data-set="fr">Français</button>
+    <button id="b-ht" type="button" data-set="ht">Kreyòl</button>
+  </div>
+
+  <header>
+    <p class="kicker"><span lang="fr">Programme de la cérémonie</span><span lang="ht">Pwogram seremoni an</span></p>
+    <h1><span>Stéphanie</span><span class="and">&</span><span>Jean-Marc</span></h1>
+    <p class="when"><span lang="fr">Samedi 12 décembre 2026, 15 h 00</span><span lang="ht">Samdi 12 desanm 2026, 3 è nan apremidi</span></p>
+    <p class="where"><span lang="fr">Église Saint-Jean, Pétion-Ville</span><span lang="ht">Legliz Sen Jan, Petyonvil</span></p>
+  </header>
+
+  <h2><span lang="fr">Déroulement</span><span lang="ht">Plan seremoni an</span></h2>
+  <ol class="timeline">
+    <li><time>14 h 30</time><span lang="fr">Accueil des invités</span><span lang="ht">Akeyi envite yo</span></li>
+    <li><time>15 h 00</time><span lang="fr">Entrée du cortège</span><span lang="ht">Antre kòtèj la</span></li>
+    <li><time>15 h 10</time><span lang="fr">Mot d’accueil et prière d’ouverture</span><span lang="ht">Mo akèy ak priyè ouvèti</span></li>
+    <li><time>15 h 20</time><span lang="fr">Lectures</span><span lang="ht">Lekti yo</span></li>
+    <li><time>15 h 35</time><span lang="fr">Homélie</span><span lang="ht">Prèch la</span></li>
+    <li><time>15 h 55</time><span lang="fr">Consentements et échange des alliances</span><span lang="ht">Konsantman ak echanj alyans yo</span></li>
+    <li><time>16 h 10</time><span lang="fr">Bénédiction des mariés</span><span lang="ht">Benediksyon pou maryen yo</span></li>
+    <li><time>16 h 20</time><span lang="fr">Signature des registres</span><span lang="ht">Siyati rejis yo</span></li>
+    <li><time>16 h 30</time><span lang="fr">Sortie des mariés</span><span lang="ht">Soti nouvo marye yo</span></li>
+  </ol>
+
+  <h2><span lang="fr">Chants</span><span lang="ht">Chante yo</span></h2>
+  <div class="card">
+    <p><span lang="fr">Chant d’entrée</span><span lang="ht">Chante antre a</span></p>
+    <p class="label">Ave Maria</p>
+  </div>
+  <div class="card">
+    <p><span lang="fr">Chant après la bénédiction</span><span lang="ht">Chante apre benediksyon an</span></p>
+    <p class="label">Alléluia</p>
+  </div>
+
+  <h2><span lang="fr">Le cortège</span><span lang="ht">Kòtèj la</span></h2>
+  <div class="card">
+    <p><span lang="fr">Parents des mariés</span><span lang="ht">Paran maryen yo</span></p>
+    <p class="label">Marie-Ange et Frantz Joseph · Rose-Marie et Gérard Pierre</p>
+  </div>
+  <div class="card">
+    <p><span lang="fr">Témoins</span><span lang="ht">Temwen yo</span></p>
+    <p class="label">Nadège Louis · Wilner Jean</p>
+  </div>
+
+  <h2><span lang="fr">Après la cérémonie</span><span lang="ht">Apre seremoni an</span></h2>
+  <div class="card">
+    <p><strong><span lang="fr">Réception à 18 h 00</span><span lang="ht">Resepsyon a 6 è nan aswè</span></strong></p>
+    <p class="label"><span lang="fr">Salle Les Jardins, Pétion-Ville</span><span lang="ht">Sal Les Jardins, Petyonvil</span></p>
+  </div>
+
+  <div class="note">
+    <p><span lang="fr">Merci de mettre vos téléphones en silencieux pendant la cérémonie. Profitez du moment : nos photographes s’occupent des images.</span><span lang="ht">Tanpri mete telefòn nou yo an silans pandan seremoni an. Pwofite moman an: fotograf nou yo ap pran foto yo.</span></p>
+  </div>
+
+  <a class="share" id="wa" href="#" target="_blank" rel="noopener">
+    <span lang="fr">Envoyer sur WhatsApp</span><span lang="ht">Voye sou WhatsApp</span>
+  </a>
+
+  <footer><a class="brand" href="https://wa.me/50934831215" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,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" alt="Linkimy"></a><p><span lang="fr">Programme créé par Linkimy. Vous vous mariez ? Écrivez-nous sur WhatsApp.</span><span lang="ht">Se Linkimy ki kreye pwogram sa a. Ou pral marye? Ekri nou sou WhatsApp.</span></p></footer>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  function setLang(l){
+    root.setAttribute("data-lang",l);
+    root.setAttribute("lang",l);
+    try{localStorage.setItem("lang",l);}catch(e){}
+  }
+  var saved=null;
+  try{saved=localStorage.getItem("lang");}catch(e){}
+  if(saved==="fr"||saved==="ht"){setLang(saved);}
+  document.querySelectorAll("[data-set]").forEach(function(b){
+    b.addEventListener("click",function(){setLang(b.getAttribute("data-set"));});
+  });
+  var wa=document.getElementById("wa");
+  wa.addEventListener("click",function(){
+    var txt="Programme du mariage de Stéphanie & Jean-Marc : "+location.href;
+    wa.href="https://wa.me/?text="+encodeURIComponent(txt);
+  });
+})();
+</script>
+</body>
+</html>
