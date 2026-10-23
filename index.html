@@ -48,7 +48,21 @@
 .gift-visual.photo{display:block;padding:0;min-height:0;aspect-ratio:1/1;background:#f6e9e4;cursor:zoom-in}
 .gift-visual.photo:before{display:none}
 .gift-photo{display:block;width:100%;height:100%;object-fit:cover}
-@media(min-width:801px){.gift-card:not(:has(.photo)) .gift-visual{flex:1 1 auto}}
+
+
+/* Réorganisation : hero universel + 3 créations */
+.hero-art .hero-photo{display:block;position:relative;z-index:1;width:min(340px,86%);aspect-ratio:1/1;border:6px solid #fff;border-radius:24px;overflow:hidden;box-shadow:0 25px 55px rgba(0,0,0,.35);transform:rotate(2.5deg)}
+.hero-art .hero-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.hero-art .hero-photo.small{position:absolute;z-index:2;left:0;bottom:-4px;width:40%;min-width:112px;border-width:5px;transform:rotate(-5deg)}
+.gift-visual.plaque-visual{display:flex;aspect-ratio:1/1;min-height:0;padding:0}
+.gift-visual.plaque-visual .plaque{flex:none;width:250px;height:auto;margin:0;transform:rotate(2deg) scale(.74)}
+.gift-link{margin-top:14px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+@media(min-width:960px){.gift-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:561px) and (max-width:959px){
+  .gift-card:nth-child(3){grid-column:1/-1;flex-direction:row}
+  .gift-card:nth-child(3)>*{flex:1 1 50%}
+  .gift-card:nth-child(3) .gift-visual.plaque-visual{aspect-ratio:auto;min-height:300px}
+}
 </style>
 </head>
 <body>
@@ -57,12 +71,12 @@
   <div class="wrap nav">
     <a class="brand" href="#accueil" aria-label="Linkimy, accueil"><img src="data:image/webp;base64,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" alt="Linkimy"></a>
     <div class="nav-right">
-      <a class="nav-gifts" href="#cadeaux-nfc"><span lang="fr">Cadeaux NFC</span><span lang="ht">Kado NFC</span></a>
+      <a class="nav-gifts" href="#creations"><span lang="fr">Nos créations</span><span lang="ht">Kreyasyon nou yo</span></a>
       <div class="lang-switch" role="group" aria-label="Langue / Lang">
         <button type="button" data-set="fr" aria-pressed="true">FR</button>
         <button type="button" data-set="ht" aria-pressed="false">KREYÒL</button>
       </div>
-      <a class="nav-cta wa" href="https://wa.me/50934831215" target="_blank" rel="noopener noreferrer"><span lang="fr">Parlons de votre mariage</span><span lang="ht">Ann pale sou maryaj ou</span></a>
+      <a class="nav-cta wa" href="https://wa.me/50934831215" target="_blank" rel="noopener noreferrer"><span lang="fr">Parlons de votre projet</span><span lang="ht">Ann pale sou pwojè ou</span></a>
     </div>
   </div>
 </header>
@@ -72,27 +86,21 @@
     <div class="wrap hero-grid">
       <div class="hero-content fade-up">
         <p class="eyebrow"><span lang="fr">Une touche. Un souvenir pour toujours.</span><span lang="ht">Yon manyen. Yon souvni pou tout tan.</span></p>
-        <h1 id="hero-title"><span lang="fr">Le programme de votre mariage, <em>au bout des doigts.</em></span><span lang="ht">Pwogram maryaj ou a, <em>nan men envite yo.</em></span></h1>
-        <p class="hero-copy"><span lang="fr">Une plaque élégante à l’entrée de l’église. Vos invités la touchent avec leur téléphone et découvrent le déroulement de votre cérémonie, en français comme en créole.</span><span lang="ht">Yon bèl plak nan papòt legliz la. Envite yo manyen li ak telefòn yo pou yo dekouvri tout pwogram seremoni an, an fransè kou an kreyòl.</span></p>
+        <h1 id="hero-title"><span lang="fr">Offrez un souvenir qui s’ouvre <em>d’un seul geste.</em></span><span lang="ht">Ofri yon souvni ki louvri <em>nan yon sèl jès.</em></span></h1>
+        <p class="hero-copy"><span lang="fr">Un ours, une boîte à bague ou une plaque de mariage : vous touchez avec votre téléphone, et votre histoire s’ouvre. Poème, photos, voix, vidéo ou programme de cérémonie.</span><span lang="ht">Yon lous, yon bwat bag oswa yon plak maryaj: ou manyen ak telefòn ou, epi istwa ou louvri. Powèm, foto, vwa, videyo oswa pwogram seremoni an.</span></p>
         <div class="actions">
-          <a class="btn btn-primary wa" href="https://wa.me/50934831215" target="_blank" rel="noopener noreferrer"><span lang="fr">Créer ma plaque de mariage</span><span lang="ht">Kreye plak maryaj mwen</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a class="btn btn-outline" href="exemple.html" target="_blank" rel="noopener noreferrer"><span lang="fr">Voir un exemple</span><span lang="ht">Gade yon egzanp</span></a>
-        </div>
-        <p class="hero-note"><span lang="fr">Sans application à installer · Français & créole · Pensé pour vos invités</span><span lang="ht">Pa bezwen enstale aplikasyon · Fransè ak kreyòl · Fèt pou envite ou yo</span></p>
+<a class="btn btn-primary" href="#creations"><span lang="fr">Découvrir nos créations</span><span lang="ht">Dekouvri kreyasyon nou yo</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="btn btn-outline wa" href="https://wa.me/50934831215" target="_blank" rel="noopener noreferrer"><span lang="fr">Nous écrire sur WhatsApp</span><span lang="ht">Ekri nou sou WhatsApp</span></a>
+</div>
+        <p class="hero-note"><span lang="fr">Sans application à installer · Français & créole · Fait avec amour</span><span lang="ht">Pa bezwen enstale aplikasyon · Fransè ak kreyòl · Fèt ak lanmou</span></p>
       </div>
-      <div class="hero-art fade-up" aria-label="Illustration d’une plaque Linkimy personnalisée pour un mariage">
-        <div class="art-halo" aria-hidden="true"></div>
-        <div class="plaque">
-          <div class="plaque-top"><span lang="fr">Notre jour précieux</span><span lang="ht">Jou espesyal nou</span></div>
-          <svg class="plaque-flower" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 34S4 24.7 4 13.8C4 5.2 14.1 2.7 20 11.2 25.9 2.7 36 5.2 36 13.8 36 24.7 20 34 20 34Z" stroke="currentColor" stroke-width="1.1"/><path d="M20 10c-2 7-2 13 0 21M20 22c-5-5-8-5-10-5M20 26c4-5 7-6 10-6" stroke="#8C9B83" stroke-width="1.1" stroke-linecap="round"/></svg>
-          <div class="plaque-names"><span>Stéphanie</span><span class="plaque-and">&amp;</span><span>Jean-Marc</span></div>
-          <div class="plaque-line"></div>
-          <div class="plaque-sub"><span lang="fr">Le programme de notre cérémonie</span><span lang="ht">Pwogram seremoni nou</span></div>
-          <svg class="nfc-symbol" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M14 13a10 10 0 0 0 0 14M20 9a16 16 0 0 0 0 22M26 5a22 22 0 0 0 0 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="10" cy="20" r="2.2" fill="currentColor"/></svg>
-        </div>
-        <div class="plaque-caption"><span lang="fr">Un petit geste, toute votre histoire.</span><span lang="ht">Yon ti jès, tout istwa nou.</span></div>
-      </div>
-    </div>
+      <div class="hero-art fade-up" aria-label="Ours coffre cœur et Mémour, créations NFC Linkimy">
+<div class="art-halo" aria-hidden="true"></div>
+<a class="hero-photo" href="#creations"><img src="ours-coffre-coeur.webp" width="900" height="900" fetchpriority="high" decoding="async" alt="Ours coffre cœur Linkimy : une femme découvre sa page souvenir sur son téléphone"></a>
+<a class="hero-photo small" href="#creations"><img src="memour.webp" width="900" height="900" loading="lazy" decoding="async" alt="Mémour, la boîte à bague NFC Linkimy"></a>
+<div class="plaque-caption"><span lang="fr">Un petit geste, toute votre histoire.</span><span lang="ht">Yon ti jès, tout istwa nou.</span></div>
+</div>
+</div>
   </section>
 
   <div class="wrap trust-row" aria-label="Avantages Linkimy">
@@ -102,45 +110,12 @@
     <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="18" cy="17" r="3" stroke="currentColor" stroke-width="1.7"/></svg><span lang="fr">Bilingue</span><span lang="ht">Bileng</span></div>
   </div>
 
-  <section class="wrap" id="fonctionnement">
-    <div class="section-head">
-      <p class="kicker"><span lang="fr">Tout simplement</span><span lang="ht">Se senp konsa</span></p>
-      <h2><span lang="fr">La magie en trois étapes</span><span lang="ht">Majik la an twa etap</span></h2>
-      <p><span lang="fr">Une expérience moderne et chaleureuse qui accompagne vos proches tout au long de votre cérémonie.</span><span lang="ht">Yon eksperyans modèn ak akeyan pou gide moun pa nou yo pandan seremoni an.</span></p>
-      <div class="ornament" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#fl"/></svg></div>
-    </div>
-    <ol class="steps">
-      <li class="step-card"><div class="step-number">01</div><h3><span lang="fr">Vous partagez votre programme</span><span lang="ht">Ou pataje pwogram ou</span></h3><p><span lang="fr">Horaires, chants, cortège et détails de la réception : transmettez-nous les informations de votre journée.</span><span lang="ht">Lè yo, chante, kòtèj ak detay resepsyon an: voye enfòmasyon sou gwo jou nou an ban nou.</span></p></li>
-      <li class="step-card"><div class="step-number">02</div><h3><span lang="fr">Nous préparons votre plaque</span><span lang="ht">Nou prepare plak pa nou an</span></h3><p><span lang="fr">Votre page bilingue et une plaque personnalisée à vos prénoms, pensées pour s’accorder à votre célébration.</span><span lang="ht">Paj bileng nou an ak yon plak pèsonalize ak non nou, ki fèt pou mache ak selebrasyon an.</span></p></li>
-      <li class="step-card"><div class="step-number">03</div><h3><span lang="fr">Vos invités découvrent le programme</span><span lang="ht">Envite yo dekouvri pwogram nan</span></h3><p><span lang="fr">Ils approchent leur téléphone de la plaque NFC ou scannent le QR code pour ouvrir le programme.</span><span lang="ht">Yo pwoche telefòn yo sou plak NFC la oswa yo eskane kòd QR la pou ouvri pwogram nan.</span></p></li>
-    </ol>
-  </section>
-
-  <section class="wrap perks-section" id="avantages">
-    <div class="perks-layout">
-      <div class="perks-intro">
-        <div class="section-head">
-          <p class="kicker"><span lang="fr">Un détail qui change tout</span><span lang="ht">Yon ti detay ki fè diferans</span></p>
-          <h2><span lang="fr">Pensé avec amour, jusque dans les détails.</span><span lang="ht">Fèt ak lanmou, jouk nan pi piti detay yo.</span></h2>
-          <p><span lang="fr">Linkimy allie élégance, simplicité et technologie pour rendre votre journée encore plus mémorable.</span><span lang="ht">Linkimy mete elegans, senplisite ak teknoloji ansanm pou fè jou nou an vin pi memorab.</span></p>
-          <div class="ornament" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#fl"/></svg></div>
-        </div>
-      </div>
-      <ul class="perks">
-        <li class="perk"><div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="2.8" width="12" height="18.4" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M10 6h4M11 18h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3><span lang="fr">Sans application</span><span lang="ht">San aplikasyon</span></h3><p><span lang="fr">Le programme s’ouvre dans le navigateur du téléphone de vos invités.</span><span lang="ht">Pwogram nan ouvri nan navigatè telefòn envite nou yo.</span></p></li>
-        <li class="perk"><div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8M8 13h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m15 16 2 2 4-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3><span lang="fr">À jour jusqu’au jour J</span><span lang="ht">Ajou jiska jou maryaj la</span></h3><p><span lang="fr">Un horaire change ou un chant s’ajoute ? Votre programme peut être mis à jour.</span><span lang="ht">Yon lè chanje oswa yon chante ajoute? Nou ka mete pwogram nan ajou.</span></p></li>
-        <li class="perk"><div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5h18v14H3zM12 5v14M3 10h18" stroke="currentColor" stroke-width="1.7"/><path d="M6 7.5h3M15 12.5h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3><span lang="fr">Français & créole</span><span lang="ht">Fransè ak kreyòl</span></h3><p><span lang="fr">Chacun consulte les informations dans la langue qui lui convient.</span><span lang="ht">Chak moun ka li enfòmasyon yo nan lang li pi alèz la.</span></p></li>
-        <li class="perk"><div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-8-4.8-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.2-8 11-8 11Z" stroke="currentColor" stroke-width="1.7"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3><span lang="fr">Un souvenir à garder</span><span lang="ht">Yon souvni pou konsève</span></h3><p><span lang="fr">Une plaque personnalisée qui garde une trace élégante de ce jour unique.</span><span lang="ht">Yon plak pèsonalize ki rete yon bèl souvni sou jou espesyal sa a.</span></p></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="wrap gifts-section" id="cadeaux-nfc" aria-labelledby="gifts-title">
+  <section class="wrap gifts-section" id="creations" aria-labelledby="gifts-title">
     <div class="gifts-shell"><svg class="deco g1" viewBox="0 0 160 160" aria-hidden="true"><use href="#bq"/></svg><svg class="deco g2" viewBox="0 0 160 160" aria-hidden="true"><use href="#bq"/></svg>
       <div class="section-head">
-        <p class="kicker"><span lang="fr">Une nouvelle façon de dire je t’aime</span><span lang="ht">Yon nouvo fason pou di mwen renmen ou</span></p>
-        <h2 id="gifts-title"><span lang="fr">Des cadeaux qui gardent votre histoire vivante.</span><span lang="ht">Kado ki fè istwa lanmou nou rete vivan.</span></h2>
-        <p><span lang="fr">Un objet que l’on garde près de soi. Une touche de téléphone. Et vos mots, vos photos, votre voix ou votre vidéo prennent vie.</span><span lang="ht">Yon kado pou kenbe toupre kè nou. Yon ti manyen ak telefòn. Epi pawòl nou, foto nou, vwa nou oswa videyo nou pran lavi.</span></p>
+        <p class="kicker"><span lang="fr">Nos créations</span><span lang="ht">Kreyasyon nou yo</span></p>
+        <h2 id="gifts-title"><span lang="fr">Trois façons d’ouvrir votre histoire.</span><span lang="ht">Twa fason pou louvri istwa nou.</span></h2>
+        <p><span lang="fr">Un objet que l’on garde près de soi, une touche de téléphone : vos mots, vos photos, votre voix, votre vidéo ou votre programme prennent vie.</span><span lang="ht">Yon objè pou kenbe toupre kè nou, yon ti manyen ak telefòn: pawòl nou, foto nou, vwa nou, videyo nou oswa pwogram nou an pran lavi.</span></p>
         <div class="ornament" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#fl"/></svg></div>
       </div>
       <div class="gift-grid">
@@ -170,6 +145,21 @@
             <a class="btn btn-gift wa" data-product="ecrin" href="https://wa.me/50934831215" target="_blank" rel="noopener noreferrer"><span lang="fr">Commander Mémour</span><span lang="ht">Kòmande Mémour</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           </div>
         </article>
+<article class="gift-card">
+<a class="gift-visual photo" href="plaque-programme.webp" target="_blank" rel="noopener" aria-label="Voir la photo en grand"><img class="gift-photo" src="plaque-programme.webp" width="900" height="900" loading="lazy" decoding="async" alt="Plaque programme de mariage Linkimy à l’entrée d’une église : une invitée découvre le programme sur son téléphone"></a>
+<div class="gift-content">
+<h3><span lang="fr">La plaque programme</span><span lang="ht">Plak pwogram nan</span></h3>
+<p><span lang="fr">Une plaque élégante à l’entrée de l’église. Vos invités la touchent avec leur téléphone et découvrent le déroulement de votre cérémonie, en français comme en créole.</span><span lang="ht">Yon bèl plak nan papòt legliz la. Envite yo manyen li ak telefòn yo pou yo dekouvri tout pwogram seremoni an, an fransè kou an kreyòl.</span></p>
+<ul class="gift-features">
+<li><span lang="fr">Déroulement, chants et cortège</span><span lang="ht">Plan seremoni, chante ak kòtèj</span></li>
+<li><span lang="fr">Modifiable jusqu’au jour J</span><span lang="ht">Ou ka chanje l jiska jou J</span></li>
+<li><span lang="fr">Plaque gravée à vos prénoms, à garder</span><span lang="ht">Plak grave ak non nou, pou konsève</span></li>
+</ul>
+<a class="btn btn-gift wa" data-product="plaque" href="https://wa.me/50934831215" target="_blank" rel="noopener noreferrer"><span lang="fr">Créer ma plaque</span><span lang="ht">Kreye plak mwen an</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="gift-link" href="exemple.html" target="_blank" rel="noopener noreferrer"><span lang="fr">Voir un exemple de page</span><span lang="ht">Gade yon egzanp paj</span></a>
+</div>
+</article>
+
       </div>
       <div class="gift-pack">
         <div><p class="kicker"><span lang="fr">Pour une surprise inoubliable</span><span lang="ht">Pou yon sipriz ki pap janm bliye</span></p><h3><span lang="fr">Le Pack Couple</span><span lang="ht">Pake Koup la</span></h3><p><span lang="fr">Réunissez l’Ours coffre cœur et Mémour, la boîte à bague NFC, pour offrir deux objets, une seule histoire et tous vos plus beaux souvenirs.</span><span lang="ht">Rasanble Ours coffre cœur la ak Mémour, bwat bag NFC la, pou ofri de kado, yon sèl istwa ak tout pi bèl souvni nou yo.</span></p></div>
@@ -178,6 +168,41 @@
       <p class="gift-note"><strong><span lang="fr">Comment ça marche ?</span><span lang="ht">Kijan sa mache?</span></strong> <span lang="fr">Le tag NFC ouvre une page Linkimy personnalisée. Les photos, audios et vidéos sont hébergés en ligne ; un QR code peut aussi être proposé selon le produit.</span><span lang="ht">Tag NFC la ouvri yon paj Linkimy pèsonalize. Foto, odyo ak videyo yo estoke sou entènèt; nou ka ajoute yon kòd QR tou selon pwodwi a.</span></p>
     </div>
   </section>
+
+  <section class="wrap" id="fonctionnement">
+    <div class="section-head">
+      <p class="kicker"><span lang="fr">Tout simplement</span><span lang="ht">Se senp konsa</span></p>
+      <h2><span lang="fr">La magie en trois étapes</span><span lang="ht">Majik la an twa etap</span></h2>
+      <p><span lang="fr">Une expérience moderne et chaleureuse, du premier message au grand jour.</span><span lang="ht">Yon eksperyans modèn ak akeyan, depi premye mesaj la jouk gwo jou a.</span></p>
+      <div class="ornament" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#fl"/></svg></div>
+    </div>
+    <ol class="steps">
+      <li class="step-card"><div class="step-number">01</div><h3><span lang="fr">Vous partagez votre histoire</span><span lang="ht">Ou pataje istwa ou</span></h3><p><span lang="fr">Poème, photos, voix, vidéo ou programme de cérémonie : transmettez-nous vos contenus.</span><span lang="ht">Powèm, foto, vwa, videyo oswa pwogram seremoni an: voye kontni ou yo ban nou.</span></p></li>
+      <li class="step-card"><div class="step-number">02</div><h3><span lang="fr">Nous préparons votre objet</span><span lang="ht">Nou prepare objè ou a</span></h3><p><span lang="fr">Votre page bilingue et un objet personnalisé à vos prénoms : ours, boîte à bague ou plaque.</span><span lang="ht">Paj bileng ou an ak yon objè pèsonalize ak non nou: lous, bwat bag oswa plak.</span></p></li>
+      <li class="step-card"><div class="step-number">03</div><h3><span lang="fr">Un geste, et tout s’ouvre</span><span lang="ht">Yon jès, epi tout bagay louvri</span></h3><p><span lang="fr">On approche le téléphone du NFC ou on scanne le QR code pour ouvrir la page.</span><span lang="ht">Ou pwoche telefòn nan sou NFC a oswa ou eskane kòd QR a pou louvri paj la.</span></p></li>
+    </ol>
+  </section>
+
+  <section class="wrap perks-section" id="avantages">
+    <div class="perks-layout">
+      <div class="perks-intro">
+        <div class="section-head">
+          <p class="kicker"><span lang="fr">Un détail qui change tout</span><span lang="ht">Yon ti detay ki fè diferans</span></p>
+          <h2><span lang="fr">Pensé avec amour, jusque dans les détails.</span><span lang="ht">Fèt ak lanmou, jouk nan pi piti detay yo.</span></h2>
+          <p><span lang="fr">Linkimy allie élégance, simplicité et technologie pour rendre vos moments encore plus mémorables.</span><span lang="ht">Linkimy mete elegans, senplisite ak teknoloji ansanm pou fè moman nou yo vin pi memorab.</span></p>
+          <div class="ornament" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#fl"/></svg></div>
+        </div>
+      </div>
+      <ul class="perks">
+        <li class="perk"><div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="6" y="2.8" width="12" height="18.4" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M10 6h4M11 18h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3><span lang="fr">Sans application</span><span lang="ht">San aplikasyon</span></h3><p><span lang="fr">La page s’ouvre dans le navigateur du téléphone, sans rien installer.</span><span lang="ht">Paj la ouvri nan navigatè telefòn nan, san enstale anyen.</span></p></li>
+        <li class="perk"><div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v14H4zM8 9h8M8 13h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m15 16 2 2 4-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3><span lang="fr">Toujours à jour</span><span lang="ht">Toujou ajou</span></h3><p><span lang="fr">Un horaire change ou un chant s’ajoute ? Nous mettons votre page à jour.</span><span lang="ht">Yon lè chanje oswa yon chante ajoute? Nou mete paj ou a ajou.</span></p></li>
+        <li class="perk"><div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5h18v14H3zM12 5v14M3 10h18" stroke="currentColor" stroke-width="1.7"/><path d="M6 7.5h3M15 12.5h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3><span lang="fr">Français & créole</span><span lang="ht">Fransè ak kreyòl</span></h3><p><span lang="fr">Chacun consulte les informations dans la langue qui lui convient.</span><span lang="ht">Chak moun ka li enfòmasyon yo nan lang li pi alèz la.</span></p></li>
+        <li class="perk"><div class="perk-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-8-4.8-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.2-8 11-8 11Z" stroke="currentColor" stroke-width="1.7"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3><span lang="fr">Un souvenir à garder</span><span lang="ht">Yon souvni pou konsève</span></h3><p><span lang="fr">Un objet personnalisé qui garde une trace élégante de votre histoire.</span><span lang="ht">Yon objè pèsonalize ki rete yon bèl souvni sou istwa nou.</span></p></li>
+      </ul>
+    </div>
+  </section>
+
+  
 
   <section class="wrap sample-band" id="exemple">
     <div class="sample-card"><svg class="deco s1" viewBox="0 0 160 160" aria-hidden="true"><use href="#bq"/></svg>
@@ -189,8 +214,8 @@
   <section class="wrap contact-section" id="contact">
     <div class="contact"><svg class="deco c1" viewBox="0 0 160 160" aria-hidden="true"><use href="#bq"/></svg><svg class="deco c2" viewBox="0 0 160 160" aria-hidden="true"><use href="#bq"/></svg>
       <p class="kicker"><span lang="fr">Commençons votre histoire</span><span lang="ht">Ann kòmanse istwa nou</span></p>
-      <h2><span lang="fr">Prêts à rendre votre cérémonie inoubliable ?</span><span lang="ht">Nou pare pou fè seremoni nou an inoubliyab?</span></h2>
-      <p><span lang="fr">Écrivez-nous sur WhatsApp pour découvrir les formules et préparer votre plaque Linkimy personnalisée.</span><span lang="ht">Ekri nou sou WhatsApp pou dekouvri fòmil yo epi prepare plak Linkimy pa nou an.</span></p>
+      <h2><span lang="fr">Prêts à créer votre souvenir ?</span><span lang="ht">Pare pou kreye souvni ou a?</span></h2>
+      <p><span lang="fr">Écrivez-nous sur WhatsApp pour découvrir les formules et préparer votre création Linkimy personnalisée.</span><span lang="ht">Ekri nou sou WhatsApp pou dekouvri fòmil yo epi prepare kreyasyon Linkimy pa ou a.</span></p>
       <a class="btn btn-primary wa" href="https://wa.me/50934831215" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 8.5c.5 2.5 2 4 4.5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span lang="fr">Écrivez-nous sur WhatsApp</span><span lang="ht">Ekri nou sou WhatsApp</span></a>
     </div>
   </section>
@@ -201,8 +226,8 @@
   'use strict';
   var root=document.documentElement;
   var phone='50934831215';
-  var messages={fr:'Bonjour Linkimy, je suis intéressé(e) par une plaque programme pour mon mariage.',ht:'Bonjou Linkimy, mwen enterese nan yon plak pwogram pou maryaj mwen.'};
-  var productMessages={ours:{fr:'Bonjour Linkimy, je suis intéressé(e) par l’Ours coffre cœur NFC avec une page souvenir personnalisée.',ht:'Bonjou Linkimy, mwen enterese nan Ours coffre cœur NFC a ak yon paj souvni pèsonalize.'},ecrin:{fr:'Bonjour Linkimy, je suis intéressé(e) par Mémour, la boîte à bague NFC personnalisée avec les initiales des mariés.',ht:'Bonjou Linkimy, mwen enterese nan Mémour, bwat bag NFC pèsonalize a ak inisyal marye yo.'},pack:{fr:'Bonjour Linkimy, je suis intéressé(e) par le Pack Couple : Ours coffre cœur et boîte à bague NFC personnalisés.',ht:'Bonjou Linkimy, mwen enterese nan Pake Koup la: Ours coffre cœur ak bwat bag NFC pèsonalize.'}};
+  var messages={fr:'Bonjour Linkimy, je souhaite avoir plus d’informations sur vos créations NFC.',ht:'Bonjou Linkimy, mwen ta renmen resevwa plis enfòmasyon sou kreyasyon NFC nou yo.'};
+  var productMessages={plaque:{fr:'Bonjour Linkimy, je suis intéressé(e) par une plaque programme NFC pour mon mariage.',ht:'Bonjou Linkimy, mwen enterese nan yon plak pwogram NFC pou maryaj mwen.'},ours:{fr:'Bonjour Linkimy, je suis intéressé(e) par l’Ours coffre cœur NFC avec une page souvenir personnalisée.',ht:'Bonjou Linkimy, mwen enterese nan Ours coffre cœur NFC a ak yon paj souvni pèsonalize.'},ecrin:{fr:'Bonjour Linkimy, je suis intéressé(e) par Mémour, la boîte à bague NFC personnalisée avec les initiales des mariés.',ht:'Bonjou Linkimy, mwen enterese nan Mémour, bwat bag NFC pèsonalize a ak inisyal marye yo.'},pack:{fr:'Bonjour Linkimy, je suis intéressé(e) par le Pack Couple : Ours coffre cœur et boîte à bague NFC personnalisés.',ht:'Bonjou Linkimy, mwen enterese nan Pake Koup la: Ours coffre cœur ak bwat bag NFC pèsonalize.'}};
   function setLang(lang){
     if(lang!=='fr'&&lang!=='ht')lang='fr';
     root.setAttribute('lang',lang);root.setAttribute('data-lang',lang);
